@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class DeckOfCards {
 
-    Scanner sc = new Scanner(System.in);
-    List<Player> playerList = new ArrayList<Player>();
+    static Scanner sc = new Scanner(System.in);
+    static List<Player> playerList = new ArrayList<Player>();
 
     String[] suit = {"Diamond", "Heart", "Spade", "Club"};
     String[] rank = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
@@ -21,22 +21,28 @@ public class DeckOfCards {
         }
     }
 
-    public void addplayer(int numberOfPlayers) {
-        System.out.println("Enter Player");
+    public static void addPlayer(int numberOfPlayers) {
+        System.out.println("Enter Player Details");
         if (numberOfPlayers <= 4 && numberOfPlayers > 2) {
+
             for (int i = 0; i < numberOfPlayers; i++) {
                 System.out.println("Player Name :");
                 String name = sc.next();
                 Player player = new Player(name);
                 playerList.add(player);
-
-            }else{
-                System.out.println("Many Players");
+                for (int j=0; j<playerList.size(); j++){
+                    System.out.println(playerList.get(j));
+                }
             }
+            System.out.println("The Size of the Player list is :"+playerList.size());
+        }else{
+                System.out.println("Player size should be <=4 and >2 ");
+             }
 
-        } }
+        }
     public static void main (String[]args){
-            addplayer(2);
+            addPlayer(3);
+
         }
     }
 
