@@ -21,15 +21,16 @@ public class DeckOfCards {
         }
     }
 
-    public static void addPlayer(int numberOfPlayers) {
-        System.out.println("Enter Player Details");
+    public void addPlayer(int numberOfPlayers) {
+        System.out.println("Player Details");
         if (numberOfPlayers <= 4 && numberOfPlayers > 2) {
 
             for (int i = 0; i < numberOfPlayers; i++) {
-                System.out.println("Player Name :");
+                System.out.print("Player Name :");
                 String name = sc.next();
                 Player player = new Player(name);
                 playerList.add(player);
+
                 for (int j=0; j<playerList.size(); j++){
                     System.out.println(playerList.get(j));
                 }
@@ -37,12 +38,27 @@ public class DeckOfCards {
             System.out.println("The Size of the Player list is :"+playerList.size());
         }else{
                 System.out.println("Player size should be <=4 and >2 ");
-             }
-
         }
-    public static void main (String[]args){
-            addPlayer(3);
+
+    }
+
+    public void playerOrder(int numberOfPlayers) {
+        System.out.println("Enter Player Order");
+        for (int i=0; i<numberOfPlayers; i++){
+            System.out.println("Player Order " +(i+1));
+            int turn = sc.nextInt();
 
         }
     }
+
+
+    public static void main (String[]args){
+        DeckOfCards dc = new DeckOfCards();
+        System.out.println("Enter number of players");
+        int number = sc.nextInt();
+        dc.assignCard();
+        dc.addPlayer(number);
+        dc.playerOrder(number);
+    }
+}
 
